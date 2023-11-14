@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inputs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+</head>
+<body class="bodymain">
+    <div class="container">
+        <form method="POST" action="{{ url_for('index') }}" >
+            <div class="form-group">
+                <label for="sections">Number of Sections</label>
+                <input type="text" class="form-control" id="sections" name="sections" aria-describedby="emailHelp" placeholder="Enter Number of Sections">
+            </div>
+            <div class="form-group">
+                <label for="class">Number of ClassRooms</label>
+                <input type="text" class="form-control" id="class" name="class" aria-describedby="emailHelp" placeholder="Enter Number of Rooms">
+            </div>
+            <div class="form-group">
+                <label for="slots">Number of TimeSlots</label>
+                <input type="text" class="form-control" id="slots" name="slots" aria-describedby="emailHelp" placeholder="Enter Number of Time Slots">
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Bootstrap and JavaScript libraries -->
+    <!-- Ensure these are included properly in your application -->
+</body>
+</html>
