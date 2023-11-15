@@ -1,17 +1,19 @@
 import random
 
-def define_problem():
-    sections = ["Section1", "Section2", "Section3", "Section4", "Section5"]
+def define_problem(classroomCount,sectionCount,slotCount):
+    sectionCount=int(sectionCount)
+    sections = ['Section'+str(i) for i in range(1,sectionCount+1)]
     days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-    time_slots = ["9AM-11AM", "12PM-2PM", "3PM-5PM"]
+    time_slots = ['Slot'+str(i) for i in range(1,slotCount+1)]
+    classrooms=['Classroom'+str(i) for i in range(1,classroomCount+1)]
     schedule = {(section, day, time): None for section in sections for day in days for time in time_slots}
-    return schedule, sections, days, time_slots
+    return schedule, sections, days, time_slots, classrooms
 
-def can_schedule(schedule, section, day, time, classroom, classroom_counts):
+def can_schedule(schedule, section, day, time, classroom, classroom_counts,sectionCount):
     for existing_section, existing_day, existing_time in schedule.keys():
         if existing_day == day and existing_time == time and schedule[(existing_section, existing_day, existing_time)] == classroom:
             return False
-    if classroom_counts[classroom] >= len(schedule) // len(classroom_counts):
+    if classroom_counts[classroom] >= len(schedule) // sectionCount:
         return False
     return True
 
@@ -31,7 +33,7 @@ def schedule_class(schedule, sections, days, time_slots, classrooms, class_index
     random.shuffle(classrooms)
 
     for classroom in classrooms:
-        if can_schedule(schedule, section, day, time, classroom, classroom_counts):
+        if can_schedule(schedule, section, day, time, classroom, classroom_counts,len(sections)):
             schedule[(section, day, time)] = classroom
             classroom_counts[classroom] += 1
 
@@ -44,16 +46,14 @@ def schedule_class(schedule, sections, days, time_slots, classrooms, class_index
     return False
 
 
-def findpattern():
-    classrooms = ["Classroom1", "Classroom2", "Classroom3", "Classroom4","Classroom5"]
-    schedule, sections, days, time_slots = define_problem()
+def findpattern(classCount,sectionCount,slotCount):
+    schedule, sections, days, time_slots, classrooms = define_problem(classCount,sectionCount,slotCount)
     classroom_counts = {classroom: 0 for classroom in classrooms}
 
     if schedule_class(schedule, sections, days, time_slots, classrooms, 0, classroom_counts):
         timetable=[]
         for section in sections:
             temptable=[]
-            
             for day in days:
                 row=[day]
                 for slot in time_slots:
@@ -61,6 +61,10 @@ def findpattern():
                 temptable.append(row)
             timetable.append(temptable)
         time_slots=['day/time']+time_slots
+        print(timetable)
         return (timetable,time_slots)
     else:
-        return None
+        print("No solution found")
+        return [False, False]
+    
+print(findpattern(6,5,3))

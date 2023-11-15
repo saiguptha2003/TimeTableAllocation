@@ -18,7 +18,9 @@ def result():
     sections = request.args.get('sections')
     slots = request.args.get('slots')
     print(f"Classes: {classes}, Sections: {sections}, Slots: {slots}")
-    s, k = u.findpattern()
+    s, k = u.findpattern(int(classes),int(sections),int(slots))
+    if s==False:
+        return render_template('error.html')
     return render_template('createtable.html', schedule=s, header=k)
 
 if __name__ == '__main__':
