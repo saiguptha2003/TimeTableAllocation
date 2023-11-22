@@ -7,12 +7,13 @@ def define_problem(classroomCount,sectionCount,slotCount):
     time_slots = ['Slot'+str(i) for i in range(1,slotCount+1)]
     classrooms=['Classroom'+str(i) for i in range(1,classroomCount+1)]
     schedule = {(section, day, time): None for section in sections for day in days for time in time_slots}
+    # print(schedule)
     return schedule, sections, days, time_slots, classrooms
 
 def can_schedule(schedule, section, day, time, classroom, classroom_counts,sectionCount):
-    for existing_section, existing_day, existing_time in schedule.keys():
-        if existing_day == day and existing_time == time and schedule[(existing_section, existing_day, existing_time)] == classroom:
-            return False
+    if (section, day, time) in schedule.keys() and schedule[(section, day, time)] is not None:
+        return False
+    
     if classroom_counts[classroom] >= len(schedule) // sectionCount:
         return False
     return True
@@ -55,7 +56,7 @@ def findpattern(classCount,sectionCount,slotCount):
         for section in sections:
             temptable=[]
             for day in days:
-                row=[day]
+                row=[day]   
                 for slot in time_slots:
                     row.append(schedule[(section, day, slot)])
                 temptable.append(row)
@@ -66,5 +67,3 @@ def findpattern(classCount,sectionCount,slotCount):
     else:
         print("No solution found")
         return [False, False]
-    
-print(findpattern(6,5,3))

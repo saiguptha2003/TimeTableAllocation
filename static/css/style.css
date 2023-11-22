@@ -1,15 +1,52 @@
+header{
+    background-color:  #ffffffb3;
+    color: rgb(0, 0, 0);
+    min-height: 50px;
+    border-bottom: rgb(225, 30, 49) 3px solid;
+}
+header a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+}
+#branding{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+}
+#branding h1{
+    font-size: 40px;
+    margin: 0;
+}
+.blue{
+    color: rgb(225, 30, 49)
+}
+.container0{
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+
 .container {
+    transition: transform 0.3s ease;
     padding: 16px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.848);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     width: 100%;
     margin: auto;
-    margin-top: 150px;
+    margin-top: 100px;
+}
+.container:hover{
+    transform:scale(1.05);
 }
 .bodymain{
-    background-color: black;
+    /* background-color: black; */
+    /* background-image:  url("1091571.png") ; */
+    background-image: url('1091571.png'); /* replace 'image.jpg' with your image file name */
+    background-attachment: fixed;
+    background-size: cover;
 }
 .btn{
     background-color: #a91212;
@@ -20,11 +57,14 @@
     width: 100%;
     margin-bottom: 10px;
 }
+
 table {
+    transition: transform 0.3s ease;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
+
 th, td {
     border: 1px solid #dddddd;
     text-align: center;
@@ -39,6 +79,11 @@ th {
     background-color: #870b0b;
    
 
+}
+.notfound {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding: 10px;
 }
 h2{
     text-align: center;

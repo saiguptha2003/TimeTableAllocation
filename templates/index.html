@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 </head>
 <body class="bodymain">
+    <header>
+        <div class="container0">
+            <div id="branding">
+                <h1>
+                    Schedule<span class="blue">It</span>
+                </h1>
+            </div>
+        </div>
+    </header>
     <div class="container">
         <form method="POST" action="{{ url_for('index') }}" >
             <div class="form-group">
@@ -25,8 +34,5 @@
             <button type="submit" class="btn">Submit</button>
         </form>
     </div>
-
-    <!-- Bootstrap and JavaScript libraries -->
-    <!-- Ensure these are included properly in your application -->
 </body>
 </html>
