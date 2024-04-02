@@ -14,7 +14,9 @@ To set up the Timetable Scheduler locally, follow these steps:
 1. Clone the repository:
 
     ```bash
+    
 https://github.com/saiguptha2003/TimeTableAllocation.git
+
     ```
 
 2. Navigate to the project directory:
