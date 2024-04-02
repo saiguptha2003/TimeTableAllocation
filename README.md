@@ -15,7 +15,7 @@ To set up the Timetable Scheduler locally, follow these steps:
 
     ```bash
     
-https://github.com/saiguptha2003/TimeTableAllocation.git
+            https://github.com/saiguptha2003/TimeTableAllocation.git
 
     ```
 
